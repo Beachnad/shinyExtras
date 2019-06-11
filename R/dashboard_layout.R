@@ -1,6 +1,10 @@
 library(shinydashboard)
 
 # MODULE HELPER =========
+
+#' Dashboard Item Wrapper
+#'
+#' @export
 dashboard_item <- function(label, icon, ...){
   id = gsub(' ', '_', label)
   list(
