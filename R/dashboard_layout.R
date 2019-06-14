@@ -32,7 +32,7 @@ dashboard_item <- function(label, icon, ...){
 #' @export
 #' @importFrom shiny NS tagList
 #' @importFrom shinydashboard dashboardHeader dashboardSidebar dashboardBody dashboardPage
-dashboard_layout <- function(title, head=NULL,...){
+dashboard_layout <- function(title, head=NULL, skin='blue',...){
   dash_items <- list(...)
 
   tab_items <- sapply(1:length(dash_items), function(i)dash_items[[i]]$tab_item, simplify = F)
@@ -42,5 +42,5 @@ dashboard_layout <- function(title, head=NULL,...){
   SIDEBAR <- dashboardSidebar(do.call(sidebarMenu, menu_items))
   BODY <- dashboardBody(tags$head(head), do.call(tabItems, tab_items))
 
-  dashboardPage(HEADER, SIDEBAR, BODY)
+  dashboardPage(HEADER, SIDEBAR, BODY, skin=skin)
 }
